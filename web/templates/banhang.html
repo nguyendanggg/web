@@ -1,0 +1,81 @@
+{% include 'header_1.html' %}
+<h3></h3>
+<h3>Danh sách các sản phẩm: </h3>
+<div class="center">
+  <div class="product-container">
+    {% for product in products %}
+      <a href="/product/{{ product[0] }}" class="product-link">
+        <div class="product">
+          <h2>{{ product[1] }}</h2>
+          <img src="{{ product[4] }}" alt="{{ product[1] }}" class="product-image">
+          <p>{{ product[2] }}</p>
+          <p>Price: {{ product[3] }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+<h3></h3>
+{% include 'footer.html' %}
+
+<style>
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 20px;
+    margin-top: 50px;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .product-image {
+  width: 290px;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .product h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .product p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .product:hover {
+    transform: translateY(-10px);
+  }
+  
+</style>
+
+<script>
+$(document).ready(function() {
+  $('.product').each(function(i) {
+    setTimeout(function() {
+      $('.product').eq(i).addClass('visible');
+    }, 200 * i);
+  });
+});
+
+</script>

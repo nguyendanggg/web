@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Import thư viện font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Định dạng phần tử cha */
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("https://znews-photo.zingcdn.me/w660/Uploaded/yqdlcqrwq/2021_09_14/13514092021.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="/login" style="color: aliceblue;"><i class="fas fa-arrow-left"></i> Đăng nhập</a>
+                    <img src="https://www.bdu.edu.vn/wp-content/uploads/2018/02/logo_bdu2018.png" alt="Logo"
+                        class="logo">
+                    <h1 class="mt-5" style="color: aliceblue;">Đăng ký</h1>
+                    <form method="POST" action="/register" class="mt-4">
+                        <div class="form-group">
+                            <label for="username" style="color: aliceblue;">Tài khoản:</label>
+                            <input type="text" id="username" name="username" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" style="color: aliceblue;">Mật khẩu:</label>
+                            <input type="password" id="password" name="password" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password" style="color: aliceblue;">Nhập lại mật khẩu:</label>
+                            <input type="password" id="confirm_password" name="confirm_password" required
+                                class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="alert alert-danger">
+                            <ul>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

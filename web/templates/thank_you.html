@@ -1,0 +1,39 @@
+{% include 'header_1.html' %}
+
+<head>
+    <title>Cảm ơn bạn đã liên hệ với chúng tôi!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .container {
+        margin-top: 50px;
+        text-align: center;
+      }
+      .thankyou {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+      .image {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+  
+  <div class="container">
+    <h1 class="thankyou">Cảm ơn bạn đã liên hệ với chúng tôi!</h1>
+    <p>Chúng tôi sẽ cố gắng phản hồi sớm nhất có thể.</p>
+    <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFp7xPJ_H4LwWlHRIjh86El_2pzKyO2tECGg&usqp=CAU">
+  </div>
+  
+  <script>
+  $(document).ready(function(){
+      $(".thankyou").fadeIn(2000);
+      $(".image").delay(2000).fadeIn(2000);
+  });
+  </script>
+  
+  </body>
+{% include 'footer.html' %}

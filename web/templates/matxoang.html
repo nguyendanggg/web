@@ -1,0 +1,237 @@
+{% include 'header.html' %}
+<H1></H1>
+<div class="row">
+    <div class="col-sm-2"></div>
+
+    <!-- content goes here -->
+    <div class="col-sm-8">
+        <h2>Sản phẩm dành cho khuôn mặt trái xoang<button class="m-2 btn btn-danger float-right" data-toggle="modal" data-target="#myModal">Thêm sản
+                phẩm</button></h2>
+
+        {%with messages = get_flashed_messages()%}
+        {%if messages%}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{message}}
+        </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+
+
+
+        <!-- Enter New Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" style="align-content: center;">Vui lòng điền thông tin</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+
+                    <div class="modal-body">
+
+                        <form action="{{ url_for('insertmx')}}" method="POST">
+                            <div class="form-group">
+                                <label>Tên</label>
+                                <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Tên">
+                            </div>
+                            <div class="form-group">
+                                <label>Image Url</label>
+                                <input type="text" name="image_url" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Địa chỉ ảnh">
+                            </div>
+                            <div class="form-group">
+                                <label>Intro</label>
+                                <input type="text" name="intro" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Giới thiệu">
+                            </div>
+                            <div class="form-group">
+                                <label>Link</label>
+                                <input type="text" name="link" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Đường dẫn">
+                            </div>
+                            <div class="form-group">
+                                <label>Giá</label>
+                                <input type="text" name="price" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Giá">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">Lưu</button>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- <table class="table table-hover"> -->
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Đường dẫn</th>
+                    <th scope="col">Giới thiệu</th>
+                    <th scope="col">Đường dẫn</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in matxoang %}
+                <tr>
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <td>{{row.2}}</td>
+                    <td>{{row.3}}</td>
+                    <td>{{row.4}}</td>
+                    <td>{{row.5}}</td>
+                    <td>
+                        <a href="/updatemx/{{row.0}}" class="col text-center btn btn-warning btn-sm"
+                        data-toggle="modal" data-target="#modaledit{{row.0}}">Cập nhật</a>
+                    <a href="/deletemx/{{ row.0 }}" onclick="return confirm('Are Sure Want To Deleted ?')"
+                        class="col text-center btn btn-danger btn-sm">Xóa</a>
+
+                    </td>
+                </tr>
+
+                <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title text-primary" style="align-content: center;">Chỉnh sửa
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+
+                            <div class="modal-body">
+
+                                <form action="{{ url_for('updatemx')}}" method="POST">
+                                    <input type="hidden" name="id" value="{{row.0}}">
+                                    <div class="form-group">
+                                        <label>Tên</label>
+                                        <input value="{{row.1}}" type="text" name="name" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Nhập chi nhánh">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Địa chỉ hình ảnh</label>
+                                        <input value="{{row.2}}" type="text" name="image_url" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Nhập địa chỉ">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Giới thiệu</label>
+                                        <input value="{{row.3}}" type="text" name="intro" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Giới thiệu">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Link</label>
+                                        <input value="{{row.4}}" type="text" name="link" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Link">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Giá</label>
+                                        <input value="{{row.5}}" type="text" name="price" class="form-control"
+                                            id="exampleFormControlInput1" placeholder="Giá">
+                                    </div>
+                                    <button type="submit" class="btn btn-success mb-2">Chỉnh sửa</button>
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+    <div class="col-sm-2"></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                //   'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ],
+            pageLength: 5
+        });
+    });
+
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src=" https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src=" https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<h2></h2>
+{% include 'footer.html' %}
+</body>
+<style>
+     table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid black;
+        word-wrap: break-word;
+    }
+</style>
+
+</html>

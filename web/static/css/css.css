@@ -1,0 +1,184 @@
+body {
+    background-color: rgb(250, 253, 255);
+    /* background-image: url('https://haycafe.vn/wp-content/uploads/2022/04/Background-xanh-duong-ket-hop-mau-trang.jpg'); */
+
+}
+.product-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-image {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.product-details {
+    width: 50%;
+}
+
+.product-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-details p:last-of-type {
+    margin-bottom: 0;
+}
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+/* .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-out;
+} */
+
+/* .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+} */
+
+/* .product {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-out;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+}
+.product-image {
+    width: 100%;
+    height: auto;
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
+/* 
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-out;
+} */
+
+/* .product:hover {
+    transform: translateY(-10px);
+} */
+nav a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* font-family: Futura, Trebuchet MS, Arial, sans-serif; */
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 5px;
+    transition: background .25s, box-shadow .15s;
+    &:hover {
+        color: #4A4860;
+        background: #fdfdfd;
+        box-shadow: 0px 4px 0px 0px #f3f704;
+    }
+}
+
+.box-title {
+    position: relative;
+    margin: 40px 0;
+    text-align: center;
+    /* margin-left: 600px */
+  }
+.box-title .box-title-name {
+    font-size: 40px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    color: #fff;
+    background: #3562dc;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    z-index: 1;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    
+}
+.box-title .box-title-name:before {
+    content: "";
+    position: absolute;
+    border-top: 10px solid #3562dc;
+    border-left: 15px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 15px solid transparent;
+    left: calc(50% - 40px);
+    bottom: -25px;
+    width: 50px;
+}
+.box-title .box-title-name:after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    bottom: -18px;
+    height: 9px;
+    width: 170px;
+    left: calc(50% - 100px);
+    border-top: 2px solid #3562dc;
+}

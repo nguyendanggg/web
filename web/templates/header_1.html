@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mắt kính ABC</title>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/css.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1Jz1zq1fe0+gCZQd1Nl/YpI2+z1rEzlqDzKmC+KLUp+uGQwIv2iV3yD0Q+2VX2nM7rHjxRwNvGKUHbJ1qz7X3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1Jz1zq1fe0+gCZQd1Nl/YpI2+z1rEzlqDzKmC+KLUp+uGQwIv2iV3yD0Q+2VX2nM7rHjxRwNvGKUHbJ1qz7X3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1Jz1zq1fe0+gCZQd1Nl/YpI2+z1rEzlqDzKmC+KLUp+uGQwIv2iV3yD0Q+2VX2nM7rHjxRwNvGKUHbJ1qz7X3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <div class="box-title">
+      <div class="box-title-name">CỬA HÀNG MẮT KÍNH ABC </div>
+    </div>
+    <nav class="navbar navbar-dark bg-primary" style="box-shadow: 0px 5px 6px 0px #b1b1af;">
+      <a class="navbar-dark" href="{{ url_for('trangchu')}}">Trang chủ</a>
+      <a class="m-2 navbar-dark " href="{{ url_for('banhangmk')}}">Sản phẩm</a>
+      <a class="m-2 navbar-dark mr-auto" href="{{ url_for('lienhe')}}">Liên hệ</a>
+    </nav>
+    <div class="d-flex justify-content-end">
+      {% if session.get('user') %}
+      <div style="background-color: #ffffff; padding: 10px;width:100%">
+        Hello, {{ session['user']['username'] }}
+      </div>
+      <a href="{{ url_for('logout')}}" class="btn btn-danger ml-auto">
+        <i class="fas fa-sign-out-alt"></i> Đăng xuất <i class="fas fa-arrow-right"></i>
+      </a>
+      {% else %}
+      <a href="{{ url_for('login')}}" class="btn btn-primary ml-auto">
+        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+      </a>
+      {% endif %}
+    </div>
+
+
+

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mắt kính ABC</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-6sBhOKL+ZEhBfJQXf4IyL/1m6a7jt9hqYvQPYvF8Zj4mkQXlYc1XdR2wY2e1HvXoRpsL1Xb2H2aOv7+7Rv6ZuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1Jz1zq1fe0+gCZQd1Nl/YpI2+z1rEzlqDzKmC+KLUp+uGQwIv2iV3yD0Q+2VX2nM7rHjxRwNvGKUHbJ1qz7X3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1Jz1zq1fe0+gCZQd1Nl/YpI2+z1rEzlqDzKmC+KLUp+uGQwIv2iV3yD0Q+2VX2nM7rHjxRwNvGKUHbJ1qz7X3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1Jz1zq1fe0+gCZQd1Nl/YpI2+z1rEzlqDzKmC+KLUp+uGQwIv2iV3yD0Q+2VX2nM7rHjxRwNvGKUHbJ1qz7X3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="container-fluid">
+    
+        <div class="box-title"><div class="box-title-name">CHỈNH SỬA DỮ LIỆU CỬA HÀNG</div></div>
+          <script src="menu.js"></script>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+              <a class="navbar-brand" href="#"></a>
+              <span class="navbar-brand">
+                <i class="fas fa-home"></i>
+              </span>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-dark m-2 " href="{{ url_for('chinhanh')}}">Chi Nhánh <span class="sr-only">(current)</span></a>
+                  </li>
+                  
+                  <li class="nav-item active">
+                    <a class="nav-dark m-2" href="{{ url_for('sukien')}}">Sự Kiện</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-dark m-2" href="{{ url_for('khachhang')}}">Khách Hàng</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-dark m-2" href="{{ url_for('blog_add')}}">Bài viết</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-dark m-2" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Sản phẩm
+                    </a>
+                    <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="{{ url_for('mattron')}}">Sản phẩm cho mặt tròn</a>
+                      <a class="dropdown-item" href="{{ url_for('matdai')}}">Sản phẩm cho mặt dài</a>
+                      <a class="dropdown-item" href="{{ url_for('matvuong')}}">Sản phẩm cho mặt vuông</a>
+                      <a class="dropdown-item" href="{{ url_for('matxoang')}}">Sản phẩm cho mặt xoang</a>
+                      <a class="dropdown-item" href="{{ url_for('mattim')}}">Sản phẩm cho mặt tim</a>
+                      <a class="dropdown-item" href="{{ url_for('kinhhot')}}">Sản phẩm khác</a>
+                    </div>
+                  </li>
+                </ul>
+                
+              </div>
+            </div>
+          </nav>
+          <div class="d-flex justify-content-end">
+            {% if session.get('user') %}
+            <span class="navbar-text mr-3">
+              Hello, {{ session['user']['username'] }}
+            </span>
+            <a href="{{ url_for('logout')}}" class="btn btn-danger ml-auto">
+              <i class="fas fa-sign-out-alt"></i> Đăng xuất <i class="fas fa-arrow-right"></i>
+            </a>
+            {% else %}
+            <a href="{{ url_for('login')}}" class="btn btn-primary ml-auto">
+              <i class="fas fa-sign-in-alt"></i> Đăng nhập
+            </a>
+            {% endif %}
+          </div>
+         
+ 
+<style>
+.navbar-nav .nav-link:hover {
+  color: black;
+}
+</style>

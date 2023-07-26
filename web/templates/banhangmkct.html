@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chi tiết sản phẩm</title>
+</head>
+<body>
+	<h1>{{ mattron['name'] }}</h1>
+	<img src="{{ mattron['image_url'] }}" alt="{{ mattron['name'] }}">
+	<p>{{ mattron['intro'] }}</p>
+	<p>Giá: {{ mattron['price'] }}</p>
+
+	<h2>Sản phẩm gợi ý</h2>
+	<ul>
+	{% for product in mattron_suggest %}
+		<li>
+			<a href="/banhangmkct/{{ product['id'] }}">
+				<img src="{{ product['image_url'] }}" alt="{{ product['name'] }}">
+				<h3>{{ product['name'] }}</h3>
+				<p>{{ product['intro'] }}</p>
+				<p>Giá: {{ product['price'] }}</p>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+</body>
+</html>

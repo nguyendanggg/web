@@ -1,0 +1,112 @@
+{% include 'header_1.html' %}
+
+{% block content %}
+<h3>Danh sách các sản phẩm: </h3>
+<div class="product-container">
+  {% for item in mattron %}
+  <div class="product">
+    <a href="/product/mattron/{{ item[0] }}">
+      <img src="{{ item[2] }}" alt="{{ item[1] }}">
+      <h2>{{ item[1] }}</h2>
+      <p>{{ item[3] }}</p>
+      <p>Giá: {{ item[4] }}</p>
+    </a>
+  </div>
+  {% endfor %}
+
+  {% for item in matdai %}
+  <div class="product">
+    <a href="/product/matdai/{{ item[0] }}">
+      <img src="{{ item[2] }}" alt="{{ item[1] }}">
+      <h2>{{ item[1] }}</h2>
+      <p>{{ item[3] }}</p>
+      <p>Giá: {{ item[4] }}</p>
+    </a>
+  </div>
+  {% endfor %}
+
+  {% for item in matvuong %}
+  <div class="product">
+    <a href="/product/matvuong/{{ item[0] }}">
+      <img src="{{ item[2] }}" alt="{{ item[1] }}">
+      <h2>{{ item[1] }}</h2>
+      <p>{{ item[3] }}</p>
+      <p>Giá: {{ item[4] }}</p>
+    </a>
+  </div>
+  {% endfor %}
+
+  {% for item in matxoang %}
+  <div class="product">
+    <a href="/product/matxoang/{{ item[0] }}">
+      <img src="{{ item[2] }}" alt="{{ item[1] }}">
+      <h2>{{ item[1] }}</h2>
+      <p>{{ item[3] }}</p>
+      <p>Giá: {{ item[4] }}</p>
+    </a>
+  </div>
+  {% endfor %}
+
+  {% for item in mattim %}
+  <div class="product">
+    <a href="/product/mattim/{{ item[0] }}">
+      <img src="{{ item[2] }}" alt="{{ item[1] }}">
+      <h2>{{ item[1] }}</h2>
+      <p>{{ item[3] }}</p>
+      <p>Giá: {{ item[4] }}</p>
+    </a>
+  </div>
+  {% endfor %}
+
+  {% for item in kinhhot %}
+  <div class="product">
+    <a href="/product/kinhhot/{{ item[0] }}">
+      <img src="{{ item[2] }}" alt="{{ item[1] }}">
+      <h2>{{ item[1] }}</h2>
+      <p>{{ item[3] }}</p>
+      <p>Giá: {{ item[4] }}</p>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% include 'footer.html' %}
+<style>
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 600px; /* set a fixed height */
+  overflow-y: auto; /* add vertical scroll bar if necessary */
+  justify-content: center; /* center the container horizontally */
+  align-items: center; /* center the container vertically */
+}
+.product:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* add box-shadow effect */
+}
+.product img:hover {
+  transform: scale(1.1); /* increase the size of the image on hover */
+}
+.product h2:hover {
+  transform: scale(1.1); /* increase the size of the image on hover */
+}
+.product {
+  width: 20%; /* display four products per row */
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out; /* add transition effect */
+}
+
+@media screen and (max-width: 768px) {
+  .product {
+    width: 50%; /* display two products per row on small screens */
+  }
+}
+</style>
